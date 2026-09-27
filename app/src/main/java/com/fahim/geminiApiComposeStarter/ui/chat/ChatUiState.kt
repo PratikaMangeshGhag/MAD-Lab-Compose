@@ -1,12 +1,17 @@
 package com.fahim.geminiApiComposeStarter.ui.chat
 
-/** Immutable UI state for the single-screen prompt/response flow. */
+enum class ThemeMode {
+    SYSTEM, LIGHT, DARK
+}
+
+/** Immutable UI state for the chat screen. */
 data class ChatUiState(
     val prompt: String = "",
-    val response: String = "",
+    val messages: List<ChatMessage> = emptyList(),
     val isLoading: Boolean = false,
     val promptError: PromptError? = null,
     val errorMessage: String? = null,
+    val themeMode: ThemeMode = ThemeMode.SYSTEM,
 )
 
 enum class PromptError { EMPTY }
